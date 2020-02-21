@@ -1,0 +1,2 @@
+# LTSchool-aggregator
+New aggregation 
