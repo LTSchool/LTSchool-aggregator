@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
-import NewsAggregator.news.views as vw
+from NewsAggregator.news.views import *
 
 
 app_name = 'news'
 urlpatterns = [
-    path('create/', vw.CreateItemView.as_view()),
+    path('create/', CreateItemView.as_view()),
 ]
