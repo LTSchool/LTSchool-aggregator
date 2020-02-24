@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from NewsAggregator.news.models import Item
+from news.models import Item
 
 class ItemDetailSerializer(serializers.ModelSerializer):
     class Meta:

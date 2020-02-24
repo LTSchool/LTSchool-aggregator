@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from NewsAggregator.news.views import *
+from news.views import *
 
 
 app_name = 'news'
