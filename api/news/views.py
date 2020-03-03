@@ -8,6 +8,7 @@ from news.models import Item
 
 class CreateItemView(generics.CreateAPIView):
     serializer_class = ItemDetailSerializer
+    permission_classes = (IsAuthenticated, )
 
 
 class ListItemView(generics.ListAPIView):
