@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+src/ModalExampleControlled.js
+src/ModalExampleControlled.jsx
+
+/Users/okot444/Documents/LTSchool-aggregator/api
