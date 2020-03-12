@@ -1,12 +1,60 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Popup from './Popup'
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+class Header extends React.Component { 
+
+    constructor() {
+        super();
+        this.state = {
+          showPopup: false
+        };
+      }
+      togglePopup() {
+        this.setState({
+          showPopup: !this.state.showPopup
+        });
+      }
+    
+        render(){
+            const aggregator = 'Alligator';
+            return (
+                   <div className = "header">
+                        <div className = "left-news">
+                            aggregator
+                            <div className="right-buttons">
+                                <button class="buttons" type="button" onClick={this.togglePopup.bind(this)} >
+                                    Вход
+                                </button>
+                
+                                <button class="buttons" type="button">
+                                    Регистрация
+                                </button>
+                            </div>
+
+                        </div>
+                        <div>
+                        { this.state.showPopup ? 
+                            <Popup
+                            text='Введите логин и пароль'
+                            closePopup={this.togglePopup.bind(this)}
+                            />
+                            : null
+                        } 
+                    </div>
+                    </div>
+                    
+            );
+                        
+        }
+}
+
+
+
+
+ReactDOM.render(<Header />, document.getElementById('root'));
+
+
+
