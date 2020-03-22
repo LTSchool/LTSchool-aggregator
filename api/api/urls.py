@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework_swagger.views import get_swagger_view
+from django.views.generic import TemplateView
 
 from news.views import RegisterUser
+
+schema_view = get_swagger_view(title='LTS NewsAgreggator-API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/auth/', include('rest_framework.urls')),
     path('api/v1/register/', RegisterUser.as_view()),
     path('api/v1/news/', include('news.urls')),
+    path('swagger/', schema_view),
 ]
