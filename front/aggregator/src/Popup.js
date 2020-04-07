@@ -1,50 +1,62 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
 
 class Popup extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: ''};
     
-        this.handleChange = this.handleChange.bind(this);
+        this.handleOnChange = this.handleOnChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-      }
-    
-      handleChange(event) {
-        this.setState({value: event.target.value});
-      }
-    
-      handleSubmit(event) {
-        alert('Попытка входа пользователя: ' + this.state.value);
+
+        this.state = {
+            user : ''
+        }
+    }
+
+    handleOnChange(event) {
+        this.setState({
+            user: event.target.value
+        });
+    }
+
+    handleSubmit (event){          // submit форма входа
+        this.props.userLogin();    // пользователь прошел авторизацию ...
+        this.props.closePopup();   // закрыть форму входа
+        this.props.userName(this.state.user); // сохранить имя пользователя
         event.preventDefault();
-      }
+    }
 
     render() {
-      return (
-        <div className='popup'>
-          <div className='popup_inner'>
-            <form className="form-style" onSubmit={this.handleSubmit}>
-              <h1>{this.props.text}</h1>
+        return (
+            <div className='popup'>
+                <div className='popup-inner'>
+                    <form className="form-style" onSubmit={this.handleSubmit}>
+                        <h1>{this.props.text}</h1>
 
-              <label>
-                Логин:
-                <input type="text" value={this.state.value} onChange={this.handleChange}/>
-              </label>
+                        <div className = 'input'>
+                            <label className="text">
+                                Логин:
+                                <input type="text" value={this.user}  onChange={this.handleOnChange} />
+                            </label>
+                        </div>
+                        <div className = 'input'>
+                            <label className="text">   
+                                Пароль:
+                                <input type="password"/>
+                            </label>
+                        </div>
+                        <div>
+                            <input className = "buttons" type="submit" value = "войти"/>
+                            <button className = "buttons" onClick={this.props.closePopup} >Закрыть</button>
+                            <button  >Регистрация</button>
 
-              <label>
-                Пароль:
-                <input type="password"/>
-              </label>
-
-              <button className = "buttons" type="submit" >Войти</button>
-              <button className = "buttons" onClick={this.props.closePopup} >Закрыть</button>
-          
-            </form>
-          </div>
-        </div>
-      );
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        );
     }
-  }
+}
 
 export default Popup;

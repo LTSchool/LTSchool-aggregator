@@ -7,12 +7,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
   
-  code {
+code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
-  }
+}
   
-  .buttons {
+.buttons {
     border: 0;
     padding: 0 20px;
     font-size: 1rem;
@@ -21,43 +21,48 @@ body {
     border-radius: 20px;
     background-color: rgb(32, 32, 32);
     height: 40px;
-  }
+}
   
-  .buttons:hover {
+.buttons:hover {
     
     background-color: rgba(22, 84, 136, 0.911);
-  }
+    
+}
+.buttons:focus
+{ 
+    outline:none 
+}
   
   
   
-  .header{
+.header{
     padding: 0 30px;
     align-items: center;
     
     height: 100px;
     background: #eaeaea;
     display: flex;
-  }
-  .right-buttons{
+}
+.right-buttons{
     display: flex;
     width:50%;
     /*background: rgb(32, 32, 32);*/
     justify-content: flex-end;
   
-  }
-  .left-news{
+}
+.left-news{
     width:50%;
     justify-content: flex-start;
-  }
+}
   
-  .aggregator{
+.aggregator{
     font-family: 'Times New Roman', Times, serif;
     font-size: 30pt;
     font-weight: bold;
-  }
+}
   
   
-  .popup {
+.popup {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -67,8 +72,8 @@ body {
     bottom: 0;
     margin: auto;
     background-color: rgba(0,0,0, 0.5);
-  }
-  .popup_inner {
+}
+.popup-inner {
     position: absolute;
     left: 25%;
     right: 25%;
@@ -77,9 +82,21 @@ body {
     margin: auto;
     background: white;
     padding: 0 20px;
-  }
+}
   
-  .form-style{
-    display: block;
+.form-style{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   
-  }
+}
+
+.input{
+  margin: 5px;
+
+
+}
+
+.text{
+    color:grey;
+}
