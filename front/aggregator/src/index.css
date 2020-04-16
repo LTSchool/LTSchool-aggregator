@@ -1,31 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale;*/
+    font-family: 'Rubik';
   }
   
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-}
-  
 .buttons {
-    border: 0;
+    border:0;
     padding: 0 20px;
     font-size: 1rem;
     text-align: center;
-    color: #eaeaea;
-    border-radius: 20px;
-    background-color: rgb(32, 32, 32);
+    color: dimgray;
+    border-radius: 10px;
     height: 40px;
+    transition: all 0.2s ease;
+    background-color: inherit;
+    
 }
   
 .buttons:hover {
+    background-color: whitesmoke;
+    color:black;
     
-    background-color: rgba(22, 84, 136, 0.911);
     
 }
 .buttons:focus
@@ -33,14 +34,11 @@ code {
     outline:none 
 }
   
-  
-  
 .header{
     padding: 0 30px;
     align-items: center;
-    
     height: 100px;
-    background: #eaeaea;
+    background: white;
     display: flex;
 }
 .right-buttons{
@@ -56,12 +54,9 @@ code {
 }
   
 .aggregator{
-    font-family: 'Times New Roman', Times, serif;
     font-size: 30pt;
     font-weight: bold;
 }
-  
-  
 .popup {
     position: fixed;
     width: 100%;
@@ -71,14 +66,14 @@ code {
     right: 0;
     bottom: 0;
     margin: auto;
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0,0,0, 0.8);
 }
 .popup-inner {
     position: absolute;
-    left: 25%;
-    right: 25%;
-    top: 25%;
-    bottom: 25%;
+    left: 5%;
+    right: 5%;
+    top: 5%;
+    bottom: 5%;
     margin: auto;
     background: white;
     padding: 0 20px;
@@ -91,12 +86,105 @@ code {
   
 }
 
-.input{
-  margin: 5px;
-
-
+fieldset{
+    padding: 20px;
+    margin: 60px;
+    font-family: 'Rubik';
 }
 
-.text{
-    color:grey;
+input{          /*    email и пароль   */
+    border-radius: 4px;
+    height: 40px;
+    width: 400px;
+    margin: 10px;
+    border: 2px solid silver;
+    font-size: 1rem;
 }
+input:focus{
+    outline:none;
+    border: 2px solid dimgray;
+}
+
+
+
+
+.news-grid{                  /*   body    новости  */
+    display: flex; 
+    flex-wrap: wrap;
+    padding: 20px 20px;
+    background-color: #F4F4F4;
+    grid-column: 10px;
+    grid-row: 10px;
+}
+
+.news-grid-item{
+    width: 300px;
+    height: 200px;
+    position: relative;
+    background: center / cover linear-gradient(180deg, royalblue 6%, rgb(220, 220, 220) 100%); ;
+    border-radius: 9px; 
+    margin: 10px;
+}
+
+.news-grid2{
+    
+    padding: 1rem 2rem;
+    display: grid;
+    background-color: Gainsboro;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+}
+
+.news-grid-item2{
+    width: 300px;
+    height: 200px;
+    background-color: #3f212159;
+    background: center / cover url(./img/nonews.png) ;
+    border-radius: 9px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 300px);
+    position: relative;
+    margin: 10px;
+}
+
+@media (max-width: 720px) {
+    .news-grid-item {
+      width: 50%;
+    }
+}
+
+.news-description {
+    padding: 1rem;
+    margin:0;
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        to bottom, 
+        rgba(0,0,0,1) 1%,
+        rgba(25, 25, 112,1) 50%,
+        rgba(0,0,0,0) 100%
+);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s, visibility .3s;
+}
+.favourite{
+    position: absolute;
+    bottom: 0;
+    color: black;
+    font-size: 20px;
+}
+.news-grid-item:hover .news-description {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+  
+
+  

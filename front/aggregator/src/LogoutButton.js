@@ -2,9 +2,9 @@ import React from 'react';
 
 function LogoutButton(props) {
   return (
-    <button className = "buttons" onClick={this.togglePopup.bind(this)} > 
-        Выйти
-    </button>
+    <button className = "buttons" onClick={props.logoutClick} > 
+      Выход 
+    </button>  
   );
 }
 export default LogoutButton;

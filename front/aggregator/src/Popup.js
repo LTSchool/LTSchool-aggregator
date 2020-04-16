@@ -31,27 +31,21 @@ class Popup extends React.Component {
             <div className='popup'>
                 <div className='popup-inner'>
                     <form className="form-style" onSubmit={this.handleSubmit}>
-                        <h1>{this.props.text}</h1>
+                    <button className = "buttons" onClick={this.props.closePopup} >x</button>
+                        <div className = 'field-input'>
 
-                        <div className = 'input'>
-                            <label className="text">
-                                Логин:
-                                <input type="text" value={this.user}  onChange={this.handleOnChange} />
-                            </label>
-                        </div>
-                        <div className = 'input'>
-                            <label className="text">   
-                                Пароль:
-                                <input type="password"/>
-                            </label>
-                        </div>
-                        <div>
-                            <input className = "buttons" type="submit" value = "войти"/>
-                            <button className = "buttons" onClick={this.props.closePopup} >Закрыть</button>
-                            <button  >Регистрация</button>
+                            <h1>{this.props.text}</h1>
+                            <div>
+                                <input type="text" placeholder="Email" value={this.user}  required onChange={this.handleOnChange} />
+                            </div>
+                            <div>
+                                <input type="password" placeholder="Пароль" required />
+                            </div>
+                            <div>
+                                <input type="submit" value = "Войти"/>
+                            </div>
 
                         </div>
-                        
                     </form>
                 </div>
             </div>
